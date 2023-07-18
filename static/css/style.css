@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css?family=Poppins:400,400i,600,700,800') format('truetype');
+  }
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 75px;
+    color: white !important;
+    text-align: center;
+}   
+.navbar-brand span{
+    color: rgb(181, 15, 42); 
+}
+
+/* ----------------- back to login button -------------------- */
+svg {
+    padding: 5px;
+  }
+  
+  .back-btn {
+    background: transparent;
+    border: none;
+    outline: 0;
+  
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    margin-top: 0px;
+  }
+  
+  .back-btn:hover polyline,
+  .back-btn:focus polyline {
+    stroke-width: 10;
+  }
+  
+  .back-btn:active polyline {
+    stroke-width: 12;
+    transition: all 100ms ease-in-out;
+  }
+  
+  polyline {
+    transition: all 250ms ease-in-out;
+  }
+
+/* ----------------- Get API button -------------------- */
+.api-btn{
+	border: 1px solid rgb(181, 15, 42) !important;
+	letter-spacing: 1px;
+	font-size: 20px;
+	line-height: 14px;
+	outline: none;
+	color: #e30613 !important;
+	background-color: transparent !important;
+	padding: 16px 24px !important;
+	border-radius: 50px !important;
+	transition: all .3s ease-in-out !important;
+    margin-top: 60px;
+}
+
+.api-btn:hover{
+	color: white !important;
+	background-color: rgb(181, 15, 42)!important;
+    transform: translateY(-2px);
+    border:1px solid rgb(181, 15, 42); 
+}
+
+.api-btn-container {
+    display: flex;
+    justify-content: center;
+  }

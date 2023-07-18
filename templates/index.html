@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AFC Blog</title>
+{% include 'includes/stylesheets.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  background: #1E1E1E;
+}
+
+.header {
+  padding: 2px;
+  font-size: 40px;
+  text-align: center;
+  background: transparent;
+  color: #CCCCCC;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.card {
+  border:1px solid #3F3F3F; 
+  background-color: #252525;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius:10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 3px rgba(0,0,0, 0.05);
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  border:1px solid rgb(181, 15, 42); 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+
+{% comment %} Card hover js function {% endcomment %}
+<script>
+  const hoverBoxes = document.querySelectorAll('.card'); var link = '';
+  var a = '';
+  hoverBoxes && hoverBoxes.forEach(box => {
+  a = box.querySelector('a');
+  link = a && a.getAttribute("href"); box.setAttribute('link', link); box.addEventListener('click', function (event) {
+  let target = box.getAttribute('link')
+  window.open(target, '_blank') || window.location.replace(target); })
+  })
+</script>
+
+</head>
+<body>
+
+<div class="header">
+  <h1 class="navbar-brand">AFC Blog<span>.</span></h1>
+  <h3 style="font-size: 20px; font-weight: 500;">This simple blog web app is built using Django and includes API features that allow users to access the title, content, and creation date of all blog posts.</h3>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    {% for post in posts reversed %}
+    <div class="card">
+      <a style="text-decoration: none; color: #CCCCCC;" href="/post/{{post.id}}">
+        <h2>{{post.title}}</h2>
+        <h5>{{post.created_at}}</h5>
+        <p>{{post.body|truncatewords:20}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="api-btn-container">
+<button class="api-btn" onclick="copyText()">Get API</button>
+</div>
+
+{% comment %} Get API function js {% endcomment %}
+<script>
+  function copyText() {
+    var textToCopy = "http://localhost:8000/api/";
+    var tempInput = document.createElement("input");
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("API URL is copied");
+  }
+</script>
+
+</body>
+</html>
+
