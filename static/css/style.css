@@ -59,7 +59,8 @@ svg {
 	padding: 16px 24px !important;
 	border-radius: 50px !important;
 	transition: all .3s ease-in-out !important;
-    margin-top: 60px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
 .api-btn:hover{
