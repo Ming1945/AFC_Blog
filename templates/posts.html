@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AFC Blog</title>  
+<title>AFC Blog - Post</title>  
 {% include 'includes/stylesheets.html' %}
 
-{% comment %} BACK BUTTON {% endcomment %}
-<a href="http://localhost:8000/">
-  <button class="back-btn">
-    <svg xml:space="preserve" width="30px" height="60px" viewBox="-5 0 60 70">
-      <polyline fill="none" stroke="rgb(181, 15, 42)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
-      45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
-    </svg>
-  </button>
-</a>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -41,32 +33,47 @@ body {
 .card {
   border:1px solid #3F3F3F; 
   background-color: #252525;
-  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-top: 20px;
   border-radius:10px;
   color: white;
 }
 
 .card p{
-  font-size: 25px;
+  font-size: 20px;
   color: #CCCCCC;
   line-height: 40px;
+
 }
 
 .card h1{
-  font-size: 40px;
+  font-size: 35px;
   color: rgb(181, 15, 42); 
 }
 
 .card h5{
-  font-size: 20px;
+  font-size: 15px;
   color: #CCCCCC;
+  margin-bottom : 60px;
+  margin-top : -20px;
 }
 
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -79,8 +86,17 @@ body {
 </head>
 <body>
 
-<div class="header">
-  <h1 class="navbar-brand">AFC Blog<span>.</span></h1>
+<div class="header" style="display:flex; justify-content: center;">
+  {% comment %} BACK BUTTON {% endcomment %}
+  <a href="{% url 'index' %}">
+    <button class="back-btn">
+      <svg xml:space="preserve" width="30px" height="60px" viewBox="-5 0 60 70">
+        <polyline fill="none" stroke="rgb(181, 15, 42)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
+        45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+      </svg>
+    </button>
+  </a>
+  <a class="navbar-brand afc-blog" href="{% url 'index' %}" style="text-decoration: none !important;">AFC Blog<span>.</span></a>
 </div>
 
 <div class="row">
